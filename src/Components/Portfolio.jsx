@@ -1,85 +1,67 @@
-/**
- * Portfolio component
- *
- * Highlights some of  your creations. These can be designs, websites,
- * open source contributions, articles you've written and more.
- *
- * This is a great area for you to to continually add to and refine
- * as you continue to learn and create.
- */
-
 import React from "react";
 
-/**
- * Desk image
- *
- * Below is a sample desk image. Feel free to update this to an image of your choice,
- * updating below imageAltText to string that represents what you see in that image.
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
- */
-import image from "../images/design-desk.jpeg";
+import todo from "../images/Todo-image.png";
+import todesktop from "../images/Todesktop.png";
+import reastaurant from "../images/restaurant.png";
+import gemini from "../images/gemini.png";
 
-const imageAltText = "desktop with books and laptop";
 
-/**
- * Project list
- *
- * An array of objects that will be used to display for your project
- * links section. Below is a sample, update to reflect links you'd like to highlight.
- */
 const projectList = [
   {
-    title: "10 Things To Know About Azure Static Web Apps 🎉",
+    id: 1,
+    title: "Restaurant Web",
     description:
-      "Collaboration to create a beginner friendly article to help explain Azure Static Web Apps and tooling to get started.",
-    url: "https://dev.to/azure/10-things-to-know-about-azure-static-web-apps-3n4i",
+      "Designed using React and Tailwind CSS, featuring a beautiful UI and smooth animations.",
+    url: "https://github.com/akkushwah/Restaurant_Web",
+    image: reastaurant
   },
   {
-    title: "Web Development for Beginners",
-    description:
-      "Contributed sketch note imagery to accompany each lesson. These help provide visual representation of what is being taught.",
-    url: "https://github.com/microsoft/web-dev-for-beginners",
+    id: 2,
+    title: "Your Gemini",
+    description: "Developed a React-based Gemini clone with full API integration, question history, and data loaders",
+    url: "https://github.com/akkushwah/gemini_clone",
+    image: gemini
   },
   {
-    title: "My Resume Site",
+    id: 3,
+    title: "ToDesktop Site",
     description:
-      "Created from Microsoft's resume workshop and deployed to GitHub pages. Includes my experience and design abilities.",
-    url: "https://github.com/microsoft/workshop-library/tree/main/full/build-resume-website",
+      "Todo Desktop is a site built with Tailwind CSS and React, featuring a modern and attractive UI.",
+    url: "https://github.com/akkushwah/ToDesktop_Tailwind_Web",
+    image: todesktop
   },
   {
-    title: "GitHub Codespaces and github.dev",
+    id: 4,
+    title: "Todo App",
     description:
-      "Video interview to explain when to use GitHub.dev versus GitHub Codespaces, and how best to use each tool.",
-    url: "https://www.youtube.com/watch?v=c3hHhRME_XI",
+      "Todo app built for managing tasks, Users can add, delete, update tasks to stay organized and efficient.",
+    url: "https://github.com/akkushwah/TodoApp",
+    image: todo
   },
 ];
+
 
 const Portfolio = () => {
   return (
     <section className="padding" id="portfolio">
       <h2 style={{ textAlign: "center" }}>Portfolio</h2>
       <div style={{ display: "flex", flexDirection: "row", paddingTop: "3rem" }}>
-        <div style={{ maxWidth: "40%", alignSelf: "center" }}>
-          <img
-            src={image}
-            style={{ height: "90%", width: "100%", objectFit: "cover" }}
-            alt={imageAltText}
-          />
-        </div>
         <div className="container">
           {projectList.map((project) => (
-            <div className="box" key={project.title}>
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
-                <h3 style={{ flexBasis: "40px" }}>{project.title}</h3>
+            <div className="box" key={project.id}  >
+              <img src={project.image}></img>
+              <a href={project.url} target="_blank">
+                <div class="box-content">
+                  <h2>{project.title}</h2>
+                  <p style={{ paddingInline: '10px', paddingBlock: '10px', fontWeight: 400 }}>{project.description}</p>
+                </div>
               </a>
-              <p className="small">{project.description}</p>
             </div>
           ))}
+
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 
