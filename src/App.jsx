@@ -1,17 +1,11 @@
-/**
- * Application component
- *
- * To contain application wide settings, routes, state, etc.
- */
-
-import React from "react";
-
+import { useEffect } from "react";
 import About from "./Components/About";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Portfolio from "./Components/Portfolio";
-
+import AOS from "aos";
+import "aos/dist/aos.css"
 import "./styles.css";
 
 const siteProps = {
@@ -26,6 +20,17 @@ const primaryColor = "#4E567E";
 const secondaryColor = "#D2F1E4";
 
 const App = () => {
+
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+    });
+    AOS.refresh();
+  }, [])
+
   return (
     <div id="main">
       <Header />

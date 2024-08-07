@@ -11,11 +11,15 @@ const Home = ({ name, title }) => {
     <section id="home" className="min-height">
       <img className="background" src={image} alt={imageAltText} />
       <div style={{ position: "absolute", top: "50%", left: "50%", transform: 'translate(-50%,-50%)', width: "100vw", lineHeight: '4rem' }}>
-        <h1>{name}</h1>
-        <h2>{title}</h2>
+        <div data-aos="zoom-in-up" data-aos-delay="400">
+          <h1>{name}</h1>
+          <h2>{title}</h2>
+        </div>
       </div>
       <div style={{ position: "absolute", bottom: "3rem", left: "50%" }}>
-        <IoIosArrowDropdown style={{ height: "3rem", width: "3rem", fontWeight: 400 }} className="arrow" />
+        <a href="#about">
+          <IoIosArrowDropdown style={{ height: "3rem", width: "3rem", fontWeight: 400 }} className="arrow" />
+        </a>
       </div>
     </section>
   );
